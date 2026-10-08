@@ -42,10 +42,12 @@ class PyBidskit(PythonPackage):
         depends_on("py-numpy@1.26.3:", when="@2025.1.30:")
         depends_on("py-numpy@1.21:")
 
+        # still a dependency in newer versions, otherwise there will throw an
+        # error when executing the bidskit binary
+        depends_on("py-pybids@0.15:")
+
         # version requirement comes from error message when using bidskit
         depends_on("dcm2niix@1.0.20220720:")
 
         # Historical dependencies
         depends_on("py-setuptools@72.1:", when="@2025.1.30")
-        # still a dependency in newer versions, otherwise bidskit will throw an error message
-        # depends_on("py-pybids@0.15:", when="@:2023.9.7")
