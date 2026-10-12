@@ -17,6 +17,8 @@ class PyUvBuild(PythonPackage):
 
     tags = ["build-tools"]
 
+    version("0.13.0", sha256="bd2614f24a58dccd4865d4f86ddd91dd01fd0efab4632e033186a8423b8a3515")
+    version("0.11.33", sha256="b09dcd86e4bbb31f4d85470892771e7c8786b3bd9b6519f7ce7480517b4d1381")
     version("0.11.6", sha256="3ca25d4fca52e0598084fab352a4cafe737043f5682e3cb654164f033ba6d736")
     version("0.8.2", sha256="7f80aa603eb67d1816917c1dc372de89a81bf082c9330418a604c5eedab54c46")
 
