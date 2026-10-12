@@ -23,6 +23,17 @@ class PyUvBuild(PythonPackage):
     version("0.8.2", sha256="7f80aa603eb67d1816917c1dc372de89a81bf082c9330418a604c5eedab54c46")
 
     depends_on("python@3.8:", type=("build", "run"))
-    depends_on("py-maturin@1", type="build")
 
-    depends_on("bzip2")
+    with default_args(type="build"):
+        depends_on("py-maturin@1")
+
+        # from Cargo.toml
+        depends_on("rust@1.97:", when="@0.12.22:")
+        depends_on("rust@1.95:", when="@0.11.29:")
+        depends_on("rust@1.92:", when="@0.10.10:")
+        depends_on("rust@1.86:")
+
+        # otherwise: libbz2.so.1.0 => not found
+        depends_on("c", when="@:0.11")
+
+    depends_on("bzip2", when="@:0.11")
